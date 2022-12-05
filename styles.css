@@ -1,0 +1,121 @@
+html {
+  background-color: #020659;
+  font-family: Arial, serif;
+}
+
+body {
+    margin: auto;
+}
+
+header {
+    background: linear-gradient(#020659, #4a52e6);
+}
+
+header, nav, p, h1, h2, h3 {
+    color: white;
+}
+
+nav li a {
+    list-style: none;
+    display:inline-block;
+    width:125px;
+    height:25px;
+    text-align: center;
+    
+
+}
+nav a:hover {
+    background-color:#590242; 
+
+}
+
+#TrendingSongs {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+#YourPlaylists {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+#CuratedPlaylists {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+@media screen and (min-width: 375px) {
+    nav ul {
+        display:grid;
+    }
+
+    main {
+        display: grid;
+
+    }
+}
+
+ul {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+}
+label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+}
+label span {
+    background-color: #ffffff;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background-color .2s ease-out;
+    width: 18px;
+}
+label span:before, label span:after {
+    background: #ffffff;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+label span:before {
+    top: 5px;
+}
+label span:after {
+    top: -5px;
+}
+input {
+    display: none;
+}
+input:checked ~ ul {
+    max-height: 500px;
+}
+input:checked ~ label span {
+    background: transparent;
+}
+input:checked ~ label span:before {
+    transform: rotate(-45deg);
+}
+input:checked ~ label span:after {
+    transform: rotate(45deg);
+}
+input:checked ~ label:not(.steps) span:before, input:checked ~ label:not(.steps) span:after {
+    top: 0;
+}
+
+@media screen and (min-width:834px) {
+    ul {
+        overflow: visible;
+        position: absolute;
+        top: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+    label span, input {
+        display: none;
+    }
+}
